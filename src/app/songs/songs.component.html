@@ -1,0 +1,7 @@
+<form (submit)="addSong()">
+  <input type="text" name="sng" [(ngModel)]="songName">
+  <button>Add</button>
+</form>
+<ul>
+  <li *ngFor="let song of songs">{{song.title}}</li>
+</ul>

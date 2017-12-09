@@ -1,0 +1,36 @@
+<h1>Search Artist</h1>
+<form (submit)="searchArtist()">
+  <input type="text" name="artist" [(ngModel)]="artistName" placeholder="Artist Name....">
+  <button>Search</button>
+</form>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 h-100 d-inline-block" style="height: 750px !important; overflow-y: scroll">
+      <div class="h-50 d-inline-block">
+        <div class="list-group" style="height: 30px;">
+          <div class="list-group-item" *ngFor="let artista of artistList" (click)="searchAlbums(artista.name)">{{artista.name}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3 h-100 d-inline-block" style="height: 750px !important; overflow-y: scroll">
+        <div class="list-group">
+          <div class="list-group-item" *ngFor="let album of albumList">
+            <!--<div class="card w-50">-->
+              <!--<div class="card-body">-->
+                <!--<h4 class="card-title">{{album.name}}</h4>-->
+                <!--<p class="card-text"></p>-->
+                <!--<a href="#" class="btn btn-primary"></a>-->
+              <!--</div>-->
+              <div class="card" style="width: 20rem;">
+              <img class="card-img-top" src="{{album.image[0]['#text']}}" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">
+                  <a routerLink="/artist/{{selectedArtist}}/albums/{{album.name}}">{{album.name}}</a>
+                </p>
+              </div>
+            <!--</div>-->
+            </div></div>
+        </div>
+    </div>
+  </div>
+</div>
